@@ -207,7 +207,7 @@ navLinks.querySelectorAll('a').forEach(link => {
 
 // Typing effect for the name
 const typingNameElement = document.getElementById('typing-name');
-const nameToType = "Prasanna Raj Poudel"; // The full name to be typed
+const nameToType = "Prasanna Raj Neupane"; // The full name to be typed
 let charIndex = 0;
 const typingSpeed = 100; // milliseconds per character
 
