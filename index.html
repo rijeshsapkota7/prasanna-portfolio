@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prasanna Raj Neupane - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aefebf9101.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- The Canvas for the background animation -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Content layered on top of the canvas -->
+    <div class="content-overlay">
+        <header>
+            <nav>
+                <div class="logo">Prasanna</div>
+                <ul>
+                    <li><a href="#home-section">Home</a></li>
+                    <li><a href="#my-projects-section">My Projects</a></li>
+                    <li><a href="#contact-section">Contact Me</a></li> <!-- Updated link -->
+                </ul>
+            </nav>
+        </header>
+
+        <main id="home-section"> <!-- Added ID for navigation -->
+            <div class="intro-section">
+                <div class="profile-pic-container">
+                    <!-- Updated image path to 'images/logo.jpg' as provided by user -->
+                    <img src="images/logo.jpg" alt="Prasanna Raj Neupane" class="profile-pic"
+                        onerror="this.onerror=null;this.src='https://placehold.co/250x250/6a11cb/ffffff?text=Profile+Pic';" />
+                </div>
+                <div class="text-content">
+                    <h1>Hi there, I am<br>Prasanna Raj Neupane</h1>
+                    <p>Welcome to my website</p>
+                    <div class="scroll-indicator">
+                        <a href="#my-projects-section" class="scroll-texts">
+                            <p>CHECK OUT MY PROJECTS</p>
+                            <a class="arrow down"></a> <!-- Linked to projects section -->
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section id="about-me-section" class="content-section">
+            <h2>About Me</h2>
+            <p>Hi, I’m Prasanna Raj Neupane, a passionate, self-made videographer, creative director, and multi-venture
+                entrepreneur from Nepal, with deep roots in visual storytelling, tech innovation, and brand building. At
+                just 20 years old, I’ve built a diverse portfolio across videography, cinematography, streetwear
+                fashion, AI infrastructure, luxury liquor, and coffee branding — turning ideas into powerful brands that
+                resonate globally.</p>
+            <h3>Personal Background</h3>
+            <ul>
+                <li>From: Nepal</li>
+                <li>Deep interests in mythology, startups, fashion, and machine intelligence</li>
+                <li>Birthday: March 24</li>
+                <li>Known for bold creativity and full-spectrum execution</li>
+            </ul>
+        </section>
+
+        <!-- My Projects Section -->
+        <section id="my-projects-section"> <!-- Added ID for navigation -->
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/400x200/4CAF50/ffffff?text=Project+Image+1" alt="Project 1">
+                    <div class="project-card-content">
+                        <h3>Project Title One</h3>
+                        <p>A brief description of Project One, highlighting its key features and technologies used. This
+                            could be a web app, a game, or a design project.</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <!-- project card 2  -->
+
+                <div class="project-card">
+                    <img src="https://placehold.co/400x200/4CAF50/ffffff?text=Project+Image+1" alt="Project 1">
+                    <div class="project-card-content">
+                        h3>JS-Access (QBasic)</h3>
+                        <p>This is a QBasic app used to manage the records made by me using QB64. It demonstrates basic
+                            database management principles and command-line interface design.</p>
+                        <a href="#" class="btn">TRY - VIEW CODE</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <img src="https://placehold.co/400x200/2196F3/ffffff?text=Project+Image+2" alt="Project 2">
+                    <div class="project-card-content">
+                        <h3>Project Title Two</h3>
+                        <p>This project showcases my skills in [specific technology]. It's a [type of project] designed
+                            to [purpose].</p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 (Optional - add more as needed) -->
+                <div class="project-card">
+                    <img src="https://placehold.co/400x200/FFC107/ffffff?text=Project+Image+3" alt="Project 3">
+                    <div class="project-card-content">
+                        <h3>Project Title Three</h3>
+                        <p>An exciting project where I explored [concept/tool]. It demonstrates my ability to [skill].
+                        </p>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Add more project cards here following the same structure -->
+
+            </div>
+        </section>
+
+        <!-- Creative Work Section -->
+        <section id="creative-work-section" class="content-section">
+            <h2>Creative Work: Photography & Videography</h2>
+            <p>With 4+ years of freelance experience, I’ve worked across high-profile personalities, brands, events, and
+                film projects:</p>
+            <ul>
+                <li>Official personal photographer for Miss Nepal 2010 for 6+ months</li>
+                <li>Worked with Miss Nepal on various brand shoots and private photography projects</li>
+                <li>Concert photographer for top Nepali bands including: John Rai and The Locals, The Souremount Nepal
+                </li>
+                <li>Contributed to the Nepali feature film “Anagat” (on-set visuals)</li>
+                <li>Shot campaigns for leading Nepali streetwear brand Huba</li>
+                <li>Produced music videos, ads, and story-based reels</li>
+                <li>Known for cinematic editing style and storytelling with emotion + class</li>
+            </ul>
+        </section>
+
+        <!-- Find Me Section -->
+        <section id="find-me-section">
+            <h2>Find Me</h2>
+            <p>You can also find me in these places</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/praneupane11" target="_blank" class="social-icon-item insta-icon">
+                    <i class="fa-brands fa-instagram insta"></i> <a href="https://www.threads.net/@praneupane11"
+                        target="_blank" class="social-icon-item thread-icon">
+                        <i class="fa-brands fa-threads threads"></i> </a>
+                    <a href="https://www.linkedin.com/in/praneupane" target="_blank"
+                        class="social-icon-item linked-icon">
+                        <i class="fa-brands fa-linkedin linkedIn"></i> </a>
+            </div>
+        </section>
+
+        <!-- Entrepreneurship Section -->
+        <section id="entrepreneurship-section" class="content-section">
+            <h2>Entrepreneurship</h2>
+            <h3>Founder of Multiple Ventures:</h3>
+            <ul>
+                <li>Shadewire: A stealth-mode AI infrastructure company. Secure, on-prem SDK/API stack that connects
+                    LLMs to siloed enterprise systems (SAP, Oracle, Salesforce). Features: RBAC, vectorization,
+                    hallucination firewall. Target: CIOs, enterprise AI teams</li>
+                <li>Altitude Origin: Himalayan high-altitude coffee brand. Sourcing premium beans from women-led,
+                    eco-conscious farmers in Nepal. Global direct-to-consumer model with investor pitch underway.</li>
+                <li>Rennwerks: Porsche 911-focused modification brand. “Engineered Emotion” – luxury customization:
+                    interior, performance, aesthetics. Limited edition drops.</li>
+                <li>Kathmandu No. 7: Ultra-premium Ahila (traditional Newar liquor). Refined for smoothness, targeting
+                    upscale export markets with luxury packaging.</li>
+                <li>RAKT: Luxury streetwear inspired by Hindu & Buddhist warrior mythology. "Supreme x Sacred" aesthetic
+                    with premium, symbolic design.</li>
+            </ul>
+        </section>
+
+        <!-- Tech & SaaS Engineering Section -->
+        <section id="tech-saas-section" class="content-section">
+            <h2>Tech & SaaS Engineering</h2>
+            <ul>
+                <li>Full-Stack Developer @ Tern.ac: Tern is a semiconductor R&D company. Built backend systems for
+                    real-time sensor integration (15-line Modbus). Expertise in Flask, PostgreSQL, API integration,
+                    on-prem deployment.</li>
+                <li>Other Projects:</li>
+                <ul>
+                    <li>QuantumX: AI-powered iOS search engine app using OpenAI API.</li>
+                    <li>Returns Infrastructure as a Service: SaaS concept pitched to Dubai-based crypto investor.</li>
+                </ul>
+            </ul>
+        </section>
+
+        <!-- Future Vision Section -->
+        <section id="future-vision-section" class="content-section">
+            <h2>Future Vision</h2>
+            <ul>
+                <li>Launch “Sins & Smoke” – a vintage cocktail bar in Durbarmarg</li>
+                <li>Build a cybersecurity company</li>
+                <li>Author a 250-page book linking Hindu mythology with AI, ML, and cosmology</li>
+            </ul>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact-section">
+            <h2>Contact</h2>
+            <div class="contact-form-container">
+                <p>I'd love to hear from you.</p>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input required type="text" id="name" name="name" placeholder="Your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input required type="email" id="email" name="email" placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea required id="message" name="message" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="contact-btn">SEND &gt;</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Copyright &copy; Prasanna Raj Neupane</p>
+            <p>V1.4</p>
+        </footer>
+
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top-btn">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 2L6 8H11V18H13V8H18L12 2Z" />
+        </svg>
+    </button>
+
+    <script>
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let particles = [];
+        const numParticles = 70; // Increased number of particles for more density
+        const maxParticleSize = 4;
+        const minParticleSize = 1;
+        const maxSpeed = 0.5;
+        const connectionDistance = 150; // Max distance for particles to connect
+        const mouseRadius = 55; // Radius around mouse for interaction (particles inside this radius will react)
+        let mouse = { x: null, y: null, active: false }; // Tracks mouse position and activity
+
+        // Set canvas dimensions to fill the window
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        // Particle class definition
+        class Particle {
+            constructor(x, y, size, directionX, directionY, color) {
+                this.x = x;
+                this.y = y;
+                this.size = size;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.color = color;
+            }
+
+            // Draw the particle on the canvas
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+
+            // Update particle position and handle interactions/boundaries
+            update() {
+                // Reverse direction if particle hits canvas edges (bounce effect)
+                if (this.x + this.size > canvas.width || this.x - this.size < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y + this.size > canvas.height || this.y - this.size < 0) {
+                    this.directionY = -this.directionY;
+                }
+
+                // Move the particle
+                this.x += this.directionX;
+                this.y += this.directionY;
+
+                // Mouse interaction (REPEL FROM MOUSE - "break and spread")
+                if (mouse.active && mouse.x !== null && mouse.y !== null) {
+                    let dx = mouse.x - this.x; // Distance in X from mouse to particle
+                    let dy = mouse.y - this.y; // Distance in Y from mouse to particle
+                    let distance = Math.sqrt(dx * dx + dy * dy); // Total distance
+
+                    // If particle is within the mouse interaction radius
+                    if (distance < mouseRadius) {
+                        let forceDirectionX = dx / distance; // Normalized force direction X
+                        let forceDirectionY = dy / distance; // Normalized force Direction Y
+
+                        // Calculate force strength (stronger when closer to mouse)
+                        let force = (mouseRadius - distance) / mouseRadius;
+
+                        // Adjust push strength multiplier (increased for more noticeable repulsion)
+                        let pushStrength = 25; // This value controls how strongly particles are pushed
+                        let pushX = forceDirectionX * force * pushStrength;
+                        let pushY = forceDirectionY * force * pushStrength;
+
+                        // Apply the push force to the particle's position
+                        this.x -= pushX; // Subtract to move away from the mouse
+                        this.y -= pushY; // Subtract to move away from the mouse
+                    }
+                }
+
+                // Redraw the particle in its new position
+                this.draw();
+            }
+        }
+
+        // Initialize particles array
+        function init() {
+            particles = []; // Clear existing particles
+            for (let i = 0; i < numParticles; i++) {
+                // Random size within defined range
+                let size = Math.random() * (maxParticleSize - minParticleSize) + minParticleSize;
+                // Random position, ensuring particles start fully within canvas
+                let x = Math.random() * (canvas.width - size * 2) + size;
+                let y = Math.random() * (canvas.height - size * 2) + size;
+                // Random direction and speed
+                let directionX = (Math.random() * maxSpeed * 2) - maxSpeed; // From -maxSpeed to +maxSpeed
+                let directionY = (Math.random() * maxSpeed * 2) - maxSpeed;
+                // Particle color (white with some transparency)
+                let color = 'rgba(255, 255, 255, 0.8)';
+
+                particles.push(new Particle(x, y, size, directionX, directionY, color));
+            }
+        }
+
+        // Main animation loop
+        function animate() {
+            requestAnimationFrame(animate); // Request next animation frame
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the entire canvas
+
+            // Update and draw each particle
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+            }
+
+            // Connect particles with lines if they are close enough
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) { // Start from 'a' to avoid duplicate checks and self-connection
+                    let dx = particles[a].x - particles[b].x;
+                    let dy = particles[a].y - particles[b].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        // Line opacity decreases as distance increases
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - (distance / connectionDistance)})`;
+                        ctx.lineWidth = 1; // Line thickness
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // Event Listeners for responsiveness and interactivity
+
+        // Resize canvas and re-initialize particles when window is resized
+        window.addEventListener('resize', () => {
+            setCanvasSize();
+            init(); // Re-initialize particles to adapt to new dimensions
+        });
+
+        // Update mouse coordinates when mouse moves over the canvas
+        canvas.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+            mouse.active = true; // Indicate mouse is over the canvas
+        });
+
+        // Reset mouse activity when mouse leaves the canvas
+        canvas.addEventListener('mouseleave', () => {
+            mouse.active = false;
+            mouse.x = null; // Clear mouse position
+            mouse.y = null;
+        });
+
+        // Scroll to Top Button Logic
+        const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) { // Show button after scrolling 300px
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scroll to top
+            });
+        });
+
+        // Initial setup:
+        // Ensure animation starts after the window has loaded
+        window.onload = function () {
+            setCanvasSize(); // Set canvas size on page load
+            init();          // Create initial particles
+            animate();       // Start the animation loop
+        };
+    </script>
+</body>
+
+</html>
