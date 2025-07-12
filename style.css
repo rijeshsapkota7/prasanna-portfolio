@@ -10,7 +10,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
+    z-index: 0;
     background: linear-gradient(to right, #6a11cb, #2575fc);
 
 }
@@ -57,7 +57,7 @@ body {
 }
 
 #preloader-name-colorize {
-    width:150px;
+    width:285px;
     font-family: 'Great Vibes', cursive; /* Stylish font for the name */
     font-size: 5em; /* Adjust as needed for prominence */
     font-weight: bold;
@@ -65,7 +65,7 @@ body {
     display: inline-block;
     white-space: nowrap; /* Keep text on one line */
     /* Corrected gradient to start with grey and reveal white */
-    background: linear-gradient(to right, #ccc 50%, #fff 50%);
+    background: linear-gradient(to right, white 50%, #cccc 50%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% 100%; /* Double width for gradient */
@@ -496,6 +496,16 @@ main {
 #about-me-section ul li:before {
     color: #6a11cb;
     /* Purple bullet points */
+}
+
+@media(max-width:610px) {
+    #about-me-section{
+        font-size: 0.8rem;
+        padding: 5px;
+    }
+    #about-me-section p{
+        text-align: left;
+    }
 }
 
 
@@ -1057,6 +1067,13 @@ footer p {
 
     .intro-section{
         padding:25px;
+    }
+}
+
+
+@media(max-width:892px) {
+    .text-content h1 {
+        align-items: center;
     }
 }
 
