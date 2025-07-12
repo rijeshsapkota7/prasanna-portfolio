@@ -1051,6 +1051,7 @@ footer p {
 @media(max-width:931px) {
     .text-content h1 {
         font-size: 2rem;
+        text-align:left;
     }
 
     .intro-section{
