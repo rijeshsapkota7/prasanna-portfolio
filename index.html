@@ -9,12 +9,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"> <!-- Added for stylish font -->
     <script src="https://kit.fontawesome.com/aefebf9101.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="spinner"></div> <!-- Optional loading spinner -->
+            <h1 id="preloader-name-colorize">Prasanna</h1> <!-- The name for colorization effect -->
+        </div>
+    </div>
+
     <!-- The Canvas for the background animation -->
     <canvas id="particleCanvas"></canvas>
 
@@ -44,7 +53,7 @@
                         onerror="this.onerror=null;this.src='https://placehold.co/250x250/6a11cb/ffffff?text=Profile+Pic';" />
                 </div>
                 <div class="text-content">
-                    <h2>Hi there, I am<br><span id="typing-name"></span></h2> <!-- Placeholder for typing effect -->
+                    <h1>Hi there, I am<br><span id="typing-name">Prasanna Raj Neupane</span></h1> <!-- Full name displayed directly after preloader -->
                     <p>Welcome to my website</p>
                     <div class="scroll-indicator">
                         <a href="#my-projects-section" class="scroll-texts">
@@ -78,7 +87,8 @@
             <div class="projects-grid">
                 <!-- Project Card 1 -->
                 <div class="project-card">
-                    <img src="https://placehold.co/400x200/4CAF50/ffffff?text=Project+Image+1" alt="Project 1">
+                    <img data-src="https://placehold.co/400x200/4CAF50/ffffff?text=Project+Image+1" alt="Project 1" class="lazy-load-img" loading="lazy"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Loading...';">
                     <div class="project-card-content">
                         <h3>Project Title One</h3>
                         <p>A brief description of Project One, highlighting its key features and technologies used. This
@@ -90,18 +100,20 @@
                 <!-- project card 2  -->
 
                 <div class="project-card">
-                    <img src="https://placehold.co/400x200/4CAF50/ffffff?text=Project+Image+1" alt="Project 1">
+                    <img data-src="https://placehold.co/400x200/4CAF50/ffffff?text=Project+Image+1" alt="Project 1" class="lazy-load-img" loading="lazy"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Loading...';">
                     <div class="project-card-content">
                         <h3>JS-Access (QBasic)</h3>
                         <p>This is a QBasic app used to manage the records made by me using QB64. It demonstrates basic
                             database management principles and command-line interface design.</p>
-                        <a href="#" class="btn">VIEW PROJECT</a>
+                        <a href="#" class="btn">TRY - VIEW CODE</a>
                     </div>
                 </div>
 
                 <!-- Project Card 3 -->
                 <div class="project-card">
-                    <img src="https://placehold.co/400x200/2196F3/ffffff?text=Project+Image+2" alt="Project 2">
+                    <img data-src="https://placehold.co/400x200/2196F3/ffffff?text=Project+Image+2" alt="Project 2" class="lazy-load-img" loading="lazy"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Loading...';">
                     <div class="project-card-content">
                         <h3>Project Title Two</h3>
                         <p>This project showcases my skills in [specific technology]. It's a [type of project] designed
@@ -112,7 +124,8 @@
 
                 <!-- Project Card 3 (Optional - add more as needed) -->
                 <div class="project-card">
-                    <img src="https://placehold.co/400x200/FFC107/ffffff?text=Project+Image+3" alt="Project 3">
+                    <img data-src="https://placehold.co/400x200/FFC107/ffffff?text=Project+Image+3" alt="Project 3" class="lazy-load-img" loading="lazy"
+                        onerror="this.onerror=null;this.src='https://placehold.co/400x200/cccccc/333333?text=Loading...';">
                     <div class="project-card-content">
                         <h3>Project Title Three</h3>
                         <p>An exciting project where I explored [concept/tool]. It demonstrates my ability to [skill].
