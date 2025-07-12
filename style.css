@@ -209,7 +209,7 @@ main {
     align-items: center;
     max-width: 1200px; /* Keep max-width for content alignment */
     margin: 0 auto; /* Center intro-section itself */
-    padding: 0; /* Remove padding to allow full movement */
+    padding: 20px; /* Remove padding to allow full movement */
     position: relative; /* Essential for absolute positioning of children */
     overflow: hidden; /* Hide elements as they slide off-screen */
     height: 100vh; /* Ensure it takes full viewport height for centering */
@@ -1051,6 +1051,7 @@ footer p {
 @media(max-width:931px) {
     .text-content h1 {
         font-size: 2rem;
+        align-items: center;
     }
 }
 
