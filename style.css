@@ -57,6 +57,7 @@ body {
 }
 
 #preloader-name-colorize {
+    width:150px;
     font-family: 'Great Vibes', cursive; /* Stylish font for the name */
     font-size: 5em; /* Adjust as needed for prominence */
     font-weight: bold;
