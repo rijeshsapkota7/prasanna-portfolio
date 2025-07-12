@@ -21,7 +21,83 @@ body {
     width: 100%;
     min-height: 100vh;
     color: white;
+    /* Initially hidden for preloader effect */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-out, visibility 1s ease-out;
+    /* Allow mouse events to pass through by default */
+    pointer-events: none; /* Crucial for allowing mouse events to reach canvas below */
 }
+
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Match canvas background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top of everything */
+    transition: transform 1s ease-in-out, opacity 1s ease-out; /* For slide-up and fade-out */
+    flex-direction: column; /* To stack spinner and text */
+    color: white;
+    pointer-events: auto; /* Ensure preloader is interactive during its display */
+}
+
+.preloader-content {
+    text-align: center;
+    padding: 20px;
+    justify-content: center; /* Ensures content is centered horizontally */
+    display: flex; /* Added display flex to center items */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items vertically */
+}
+
+#preloader-name-colorize {
+    font-family: 'Great Vibes', cursive; /* Stylish font for the name */
+    font-size: 5em; /* Adjust as needed for prominence */
+    font-weight: bold;
+    color: #ccc; /* Initial grey color */
+    display: inline-block;
+    white-space: nowrap; /* Keep text on one line */
+    /* Corrected gradient to start with grey and reveal white */
+    background: linear-gradient(to right, #ccc 50%, #fff 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%; /* Double width for gradient */
+    background-position: 100% 0; /* Start with grey visible */
+    transition: background-position 2s ease-in-out; /* Smooth colorization transition */
+}
+
+#preloader-name-colorize.colorized {
+    background-position: 0% 0; /* Move gradient to show color */
+}
+
+/* Optional: Spinner animation */
+.spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animation for preloader to slide up */
+#preloader.slide-up {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
 
 header {
     padding: 20px 50px;
@@ -29,6 +105,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 3;
+    pointer-events: auto; /* Re-enable pointer events for header for navigation */
 }
 
 nav {
@@ -73,6 +150,7 @@ nav {
     padding: 5px 10px;
     font-family: "Roboto", sans-serif;
     font-weight: bolder;
+    pointer-events: auto; /* Re-enable pointer events for navigation links */
 }
 
 .nav-links li a:hover {
@@ -90,6 +168,7 @@ nav {
     height: 25px;
     z-index: 4;
     /* Ensure it's above other elements */
+    pointer-events: auto; /* Re-enable pointer events for hamburger */
 }
 
 .hamburger div {
@@ -126,17 +205,19 @@ main {
 
 .intro-section {
     display: flex;
+    justify-content: center; /* Center horizontally for animation */
     align-items: center;
-    /* justify-content: center; */
-    gap: 231px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 15px;
-    margin-top: -128px;
-    /* Adjusted for larger screens to move it down */
+    max-width: 1200px; /* Keep max-width for content alignment */
+    margin: 0 auto; /* Center intro-section itself */
+    padding: 0; /* Remove padding to allow full movement */
+    position: relative; /* Essential for absolute positioning of children */
+    overflow: hidden; /* Hide elements as they slide off-screen */
+    height: 100vh; /* Ensure it takes full viewport height for centering */
+    margin-top: -144px; /* Remove fixed margin-top */
+    gap: 231px; /* Keep gap for desktop layout */
 }
 
+/* Initial state for profile pic and text content before animation */
 .profile-pic-container {
     width: 250px;
     height: 250px;
@@ -144,6 +225,10 @@ main {
     overflow: hidden;
     border: 5px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Start visible */
+    transform: translateX(150%); /* Start in its natural flex position */
+    transition: transform 2.5s ease-out, opacity 1.5s ease-out; /* Smooth transition */
+    z-index: 2; /* Ensure it's above text-content initially */
 }
 
 .profile-pic {
@@ -154,31 +239,50 @@ main {
 
 .text-content {
     text-align: left;
-    width: 565px;
+    opacity: 0; /* Start hidden */
+    transform: translateX(150%); /* Start off-screen to the right */
+    transition: transform 2s ease-out, opacity 1.5s ease-out; /* Smooth transition */
+    z-index: 1; /* Below profile-pic-container initially */
+    width: 600px; /* Keep existing width */
 }
 
-.text-content h2 {
-    min-width: 100px;
-    font-size: 3.5em;
+.text-content h1 {
+    font-size: 3.3em;
     margin-bottom: 10px;
     line-height: 1.2;
     background: linear-gradient(to right, #ffffff, #dcdcdc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: auto; /* Remove fixed width for responsiveness */
 }
 
 #typing-name {
     display: inline-block;
-    /* Ensure it respects width/height for cursor */
-    min-width: 5px
-        /* Estimated width to prevent shifting on desktop */
+    min-width: unset;
 }
-
 
 .text-content p {
     font-size: 1.5em;
     opacity: 0.8;
 }
+
+/* Animation states for intro-section elements */
+.profile-pic-container.slide-left {
+
+    opacity: 1; /* Fade out */
+    transform: translateX(0);
+}
+
+
+.text-content.slide-in {
+    opacity: 1; /* Fade in */ 
+    transform: translateX(0); /* Slide into final position */
+
+}
+
 
 .scroll-indicator {
     margin-top: 50px;
@@ -192,6 +296,7 @@ main {
 .scroll-texts {
     color: white;
     text-decoration: none;
+    pointer-events: auto; /* Re-enable pointer events for scroll indicator link */
 }
 
 .scroll-indicator p {
@@ -404,9 +509,9 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    clip-path: polygon(214% -8%, -99% 15%, 19% 590%);
-    height: 80em;
-
+    /* Removed clip-path to fix background nodes distortion */
+    min-height: 100vh; /* Changed height to min-height for flexibility */
+    pointer-events: auto; /* Re-enable pointer events for this section */
 }
 
 @media(max-width:950px) {
@@ -419,8 +524,8 @@ main {
 
 @media(max-width:910px) {
     #my-projects-section {
-        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-        height: 300vh;
+        /* Removed clip-path to fix background nodes distortion */
+        min-height: 100vh; /* Adjusted for consistency */
     }
 
 }
@@ -474,6 +579,7 @@ main {
     flex-direction: column;
     height: 100%;
     border: 1px solid #eee;
+    pointer-events: auto; /* Re-enable pointer events for project cards */
 }
 
 .project-card:hover {
@@ -522,6 +628,7 @@ main {
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align: center;
     align-self: flex-start;
+    pointer-events: auto; /* Re-enable pointer events for project buttons */
 }
 
 .project-card .btn:hover {
@@ -556,6 +663,7 @@ main {
     /* Ensure it's above the fixed canvas */
     margin-top: -100px;
     /* Pull it up to meet the previous section's bottom */
+    pointer-events: auto; /* Re-enable pointer events for this section */
 }
 
 #find-me-section h2 {
@@ -585,6 +693,7 @@ main {
     text-decoration: none;
     color: inherit;
     transition: transform 0.2s ease;
+    pointer-events: auto; /* Re-enable pointer events for social icons */
 }
 
 .social-icon-item:hover {
@@ -615,6 +724,7 @@ main {
     max-width: 100%;
     position: relative;
     z-index: 2;
+    pointer-events: auto; /* Re-enable pointer events for this section */
 }
 
 #contact-section h2 {
@@ -647,6 +757,7 @@ main {
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     text-align: left;
+    pointer-events: auto; /* Re-enable pointer events for the form container */
 }
 
 .contact-form-container p {
@@ -681,6 +792,7 @@ main {
     color: #333;
     background-color: #f9f9f9;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    pointer-events: auto; /* Re-enable pointer events for form inputs */
 }
 
 .form-group input[type="text"]:focus,
@@ -714,6 +826,7 @@ main {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align: center;
+    pointer-events: auto; /* Re-enable pointer events for contact button */
 }
 
 .contact-btn:hover {
@@ -737,6 +850,7 @@ footer {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    pointer-events: auto; /* Re-enable pointer events for footer */
 }
 
 footer p {
@@ -795,17 +909,18 @@ footer p {
 
 /* Responsive Adjustments */
 @media (max-width: 900px) {
+    #preloader-name-colorize { /* Changed from #preloader-typing-name */
+        font-size: 4em; /* Adjust for tablets */
+    }
     header {
         padding: 15px 20px;
     }
-
     nav {
         flex-direction: row;
         /* Keep logo and hamburger on one row */
         justify-content: space-between;
         /* Space out logo and hamburger */
     }
-
     .nav-links {
         display: none;
         /* Hide nav links by default on smaller screens */
@@ -840,221 +955,175 @@ footer p {
     }
 
     .intro-section {
-        flex-direction: column;
+        flex-direction: column; /* Stack vertically on smaller screens */
         gap: 40px;
-        text-align: center;
+        height: auto; /* Allow height to adjust */
+        min-height: 100vh; /* Ensure it still takes full height */
+        /* IMPORTANT: Do NOT remove 'position: relative' or 'overflow: hidden' here. */
+        /* These are needed for the animation to work universally. */
+        position: relative; /* Keep relative positioning for animation */
+        overflow: hidden; /* Keep hidden overflow for animation */
     }
-
+    /* For smaller screens, adjust the initial position of text-content to be more centered
+       before sliding, and ensure profile pic is still centered when stacked. */
+    .profile-pic-container {
+        /* On mobile, it should still animate, but from a more central starting point */
+        transform: translateX(0); /* Start centered in the flex column */
+        opacity: 1; /* Ensure visible */
+    }
     .text-content {
-        text-align: center;
+        /* On mobile, it should still animate, but from a more central starting point */
+        transform: translateX(0); /* Start centered in the flex column, then animate */
+        opacity: 0; /* Still start hidden for animation */
+        text-align: center; /* Center text content on mobile */
     }
 
-    .text-content h2 {
+    .text-content h1 {
         font-size: 2.8em;
     }
-
     #typing-name {
-        min-width: 300px;
-        /* Adjusted min-width for tablets */
+        min-width: unset;
     }
-
     .profile-pic-container {
         width: 200px;
         height: 200px;
     }
-
     /* Responsive adjustments for content sections */
     .content-section {
         padding: 60px 15px;
-        /* Adjust padding for tablets */
     }
-
     .content-section h2 {
         font-size: 2.5em;
         margin-bottom: 40px;
     }
-
     .content-section h3 {
         font-size: 1.8em;
         margin-top: 30px;
         margin-bottom: 15px;
     }
-
     .content-section p,
     .content-section ul li {
         font-size: 1em;
-        /* Slightly smaller text for tablets */
         max-width: 700px;
-        /* Adjust max-width for tablets */
     }
-
     .projects-grid {
         grid-template-columns: 1fr;
     }
-
     .featured-project-card {
         margin-bottom: 40px;
     }
-
     .featured-project-card-content {
         padding: 20px;
     }
-
     .featured-project-card h3 {
         font-size: 1.5em;
     }
-
     #find-me-section {
         padding: 80px 15px;
         margin-top: -50px;
-        /* Adjust margin for smaller screens */
     }
-
     .social-icons {
         gap: 30px;
     }
-
     .social-icon-item svg {
         width: 50px;
         height: 50px;
     }
-
     #contact-section {
         padding: 60px 15px;
     }
-
     .contact-form-container {
         padding: 30px;
     }
-
     footer {
         padding: 15px 20px;
-        /* Adjust footer padding */
         flex-direction: column;
-        /* Stack items vertically on small screens */
         gap: 10px;
-        /* Space between stacked items */
     }
 }
 
 @media (max-width:1115px) {
-
-    .text-content {
-        width: 400px;
-    }
-
-    .text-content h2 {
+    .text-content h1 {
         font-size: 2.3em;
     }
-
-
 }
 
 @media(max-width:931px) {
-    .text-content {
-        width: 350px;
-    }
-
-    .text-content h2 {
+    .text-content h1 {
         font-size: 2rem;
     }
 }
 
 @media (max-width: 600px) {
+    #preloader-name-colorize {
+        font-size: 3em;
+    }
     header {
         padding: 15px 20px;
     }
-
     nav {
         flex-direction: row;
         justify-content: space-between;
     }
-
     .nav-links {
         top: 60px;
-        /* Adjust for smaller header height */
     }
-
-    .text-content h2 {
+    .text-content h1 {
         font-size: 2em;
     }
-
     #typing-name {
-        min-width: 220px;
-        /* Adjusted min-width for mobile */
+        min-width: unset;
     }
-
     .text-content p {
         font-size: 1.2em;
     }
-
-    /* Responsive adjustments for content sections on mobile */
     .content-section {
         padding: 40px 10px;
-        /* Further adjust padding for mobile */
     }
-
     .content-section h2 {
         font-size: 2em;
         margin-bottom: 30px;
     }
-
     .content-section h3 {
         font-size: 1.5em;
         margin-top: 25px;
         margin-bottom: 10px;
     }
-
     .content-section p,
     .content-section ul li {
         font-size: 0.95em;
-        /* Smaller text for mobile */
         max-width: 95%;
-        /* Allow content to take more width on mobile */
         text-align: left;
-        /* Left align text on very small screens for better flow */
     }
-
     .content-section ul li {
         padding-left: 20px;
-        /* Adjust bullet padding */
     }
-
     .project-card-content {
         padding: 15px;
     }
-
     .project-card h3 {
         font-size: 1.3em;
     }
-
     .project-card p {
         font-size: 0.9em;
     }
-
     #find-me-section {
         padding: 60px 10px;
         margin-top: -30px;
-        /* Further adjust for very small screens */
     }
-
     .social-icons {
         gap: 20px;
     }
-
     .social-icon-item svg {
         width: 40px;
         height: 40px;
     }
-
     #contact-section {
         padding: 40px 10px;
     }
-
     .contact-form-container {
         padding: 20px;
     }
-
     .contact-btn {
         font-size: 1em;
         padding: 12px 20px;
@@ -1062,16 +1131,9 @@ footer p {
 }
 
 
-
-
-
 @media(max-width:393px) {
-    .text-content h2 {
+    .text-content h1 {
         font-size: 1.5rem;
-    }
-
-    .text-content {
-        width: 280px;
     }
 }
 
